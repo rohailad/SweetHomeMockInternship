@@ -514,8 +514,8 @@ public class FurnitureController implements Controller {
    * Toggles furniture property visibility in home. 
    */
   public void toggleFurnitureVisibleProperty(HomePieceOfFurniture.SortableProperty furnitureProperty) {
-    List<SortableProperty> furnitureVisibleProperties = 
-        new ArrayList<SortableProperty>(this.home.getFurnitureVisibleProperties());
+    List<SortableProperty> furnitureVisibleProperties =
+            new ArrayList<SortableProperty>(this.home.getFurnitureVisibleProperties());
     if (furnitureVisibleProperties.contains(furnitureProperty)) {
       furnitureVisibleProperties.remove(furnitureProperty);
       // Ensure at least one column is visible
@@ -525,29 +525,30 @@ public class FurnitureController implements Controller {
     } else {
       // Add furniture property after the visible property that has the previous index in 
       // the following list
-      List<HomePieceOfFurniture.SortableProperty> propertiesOrder = 
-          Arrays.asList(new HomePieceOfFurniture.SortableProperty [] {
-              HomePieceOfFurniture.SortableProperty.CATALOG_ID, 
-              HomePieceOfFurniture.SortableProperty.NAME, 
-              HomePieceOfFurniture.SortableProperty.WIDTH,
-              HomePieceOfFurniture.SortableProperty.DEPTH,
-              HomePieceOfFurniture.SortableProperty.HEIGHT,
-              HomePieceOfFurniture.SortableProperty.X,
-              HomePieceOfFurniture.SortableProperty.Y,
-              HomePieceOfFurniture.SortableProperty.ELEVATION,
-              HomePieceOfFurniture.SortableProperty.ANGLE,
-              HomePieceOfFurniture.SortableProperty.LEVEL,
-              HomePieceOfFurniture.SortableProperty.COLOR,
-              HomePieceOfFurniture.SortableProperty.TEXTURE,
-              HomePieceOfFurniture.SortableProperty.MOVABLE,
-              HomePieceOfFurniture.SortableProperty.DOOR_OR_WINDOW,
-              HomePieceOfFurniture.SortableProperty.VISIBLE,
-              HomePieceOfFurniture.SortableProperty.PRICE,
-              HomePieceOfFurniture.SortableProperty.VALUE_ADDED_TAX_PERCENTAGE,
-              HomePieceOfFurniture.SortableProperty.VALUE_ADDED_TAX,
-              HomePieceOfFurniture.SortableProperty.PRICE_VALUE_ADDED_TAX_INCLUDED}); 
+      List<HomePieceOfFurniture.SortableProperty> propertiesOrder =
+              Arrays.asList(new HomePieceOfFurniture.SortableProperty[]{
+                      HomePieceOfFurniture.SortableProperty.CATALOG_ID,
+                      HomePieceOfFurniture.SortableProperty.NAME,
+                      HomePieceOfFurniture.SortableProperty.WIDTH,
+                      HomePieceOfFurniture.SortableProperty.DEPTH,
+                      HomePieceOfFurniture.SortableProperty.HEIGHT,
+                      HomePieceOfFurniture.SortableProperty.VOLUME,
+                      HomePieceOfFurniture.SortableProperty.X,
+                      HomePieceOfFurniture.SortableProperty.Y,
+                      HomePieceOfFurniture.SortableProperty.ELEVATION,
+                      HomePieceOfFurniture.SortableProperty.ANGLE,
+                      HomePieceOfFurniture.SortableProperty.LEVEL,
+                      HomePieceOfFurniture.SortableProperty.COLOR,
+                      HomePieceOfFurniture.SortableProperty.TEXTURE,
+                      HomePieceOfFurniture.SortableProperty.MOVABLE,
+                      HomePieceOfFurniture.SortableProperty.DOOR_OR_WINDOW,
+                      HomePieceOfFurniture.SortableProperty.VISIBLE,
+                      HomePieceOfFurniture.SortableProperty.PRICE,
+                      HomePieceOfFurniture.SortableProperty.VALUE_ADDED_TAX_PERCENTAGE,
+                      HomePieceOfFurniture.SortableProperty.VALUE_ADDED_TAX,
+                      HomePieceOfFurniture.SortableProperty.PRICE_VALUE_ADDED_TAX_INCLUDED});
       int propertyIndex = propertiesOrder.indexOf(furnitureProperty) - 1;
-      if (propertyIndex > 0) {      
+      if (propertyIndex > 0) {
         while (propertyIndex > 0) {
           int visiblePropertyIndex = furnitureVisibleProperties.indexOf(propertiesOrder.get(propertyIndex));
           if (visiblePropertyIndex >= 0) {
